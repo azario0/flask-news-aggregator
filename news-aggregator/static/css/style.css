@@ -1,0 +1,40 @@
+body {
+    background-color: #212529; /* Dark background for the whole page */
+}
+
+.article-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1) !important;
+}
+
+.card-title a {
+    color: #0d6efd;
+}
+
+.card-title a:hover {
+    text-decoration: underline !important;
+}
+
+.favicon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+.summary-text img {
+    /* Ensure images from summaries are responsive and don't overflow */
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

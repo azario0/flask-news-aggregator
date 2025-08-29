@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <h1 class="mb-4 text-center">Latest News</h1>
+
+    {% for article in articles %}
+    <div class="card mb-3 shadow-sm article-card">
+      <div class="card-header bg-dark-subtle d-flex align-items-center">
+        <img src="{{ article.source_icon }}" alt="Favicon" class="me-2 favicon">
+        <strong class="me-auto">{{ article.source_title }}</strong>
+        <small class="text-body-secondary">{{ article.published_parsed | datetimeformat }}</small>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ article.link }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+            {{ article.title }}
+          </a>
+        </h5>
+        <div class="card-text summary-text">
+          <!-- The 'safe' filter is used to render HTML from the RSS feed. -->
+          <!-- Use with caution if you don't trust the feed sources. -->
+          {{ article.summary | safe }}
+        </div>
+      </div>
+    </div>
+    {% else %}
+      <div class="alert alert-warning" role="alert">
+        No articles found. Please check your RSS feed URLs in the `.env` file.
+      </div>
+    {% endfor %}
+    
+  </div>
+</div>
+{% endblock %}
